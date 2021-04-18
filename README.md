@@ -1,3 +1,11 @@
+## What this fork is for
+
+```
+docker build -t openie6 .
+```
+
+---
+
 # OpenIE6 System 
 
 This repository contains the code for the paper:\

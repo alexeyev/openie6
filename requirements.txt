@@ -109,5 +109,3 @@ sphinx_rtd_theme==0.4.3
 tensorboardX==1.9
 easy_rouge==0.2.2
 toolz
-./imojie/allennlp
-./imojie/pytorch_transformers
