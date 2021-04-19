@@ -25,7 +25,9 @@ python -m nltk.downloader punkt
 ```
 
 All results have been obtained on V100 GPU with CUDA 10.0
-NOTE: HuggingFace transformers==2.6.0 is necessary. The latest version has a breaking change in the way tokenizer is used in the code. It will not raise an error but will give wrong results!
+NOTE: HuggingFace transformers==2.6.0 is necessary. 
+The latest version has a breaking change in the way tokenizer is used in the code. 
+It will not raise an error but will give wrong results!
 
 ## Download Resources
 Download Data (50 MB)
