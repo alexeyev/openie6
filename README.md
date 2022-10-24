@@ -79,6 +79,12 @@ Additional flags -
 --type sentences // outputs decomposed sentences to the file path `out`+'.sentences'
 ```
 
+Additional Notes:
+
+1. The model is trained with tokenized sentences and hence requires tokenized sentences during prediction as well. The code currently uses nltk tokenization for this purpose. This will lead to the final sentences being different from the input sentences, as they will be the tokenized version. If this is not desirable you can comment the nltk tokenization in data.py and make sure that your sentences are tokenized beforehand.
+2. Due to an artifact of training data in conjunction model, it requires the sentence to end with full stop to function correctly.   
+
+
 ## Training Model
 
 ### Warmup Model
@@ -119,6 +125,8 @@ python run.py --save models/oie_model --mode predict --model_str bert-base-cased
 ```
 
 Time (Approx): 142 extractions/second
+
+NOTE: Due to a bug in the code, [link](https://github.com/dair-iitd/openie6/issues/10), we end up using a loss function based only on the constrained loss term and not the original Cross Entropy (CE) loss. It still seems to work well as the warmup model is already trained with the CE loss and the constrained training is initialized from the warmup model.
 
 ### Running Coordination Analysis
 ```
