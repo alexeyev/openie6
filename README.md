@@ -1,11 +1,21 @@
 ## What this fork is for: Docker
 
+Suppose you are in `/home/myuser/`
+
 ```
+git clone git@github.com:alexeyev/openie6.git
 zenodo_get 4055395
 tar -xvf openie6_models.tar.gz
 docker build -t openie6 .
 nvidia-docker run --gpus all -v /home:/home -it -p 8084:8084 openie6:latest bash
-CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=2 PYTHONPATH=imojie:imojie/allennlp:imojie/pytorch_transformers:$PYTHONPATH python run.py  --mode splitpredict --inp lsoie-5_single-sentences.txt --out lsoie_predictions.txt  --rescoring --task oie --gpus 1 --oie_model models/oie_model/epoch=14_eval_acc=0.551_v0.ckpt  --conj_model models/conj_model/epoch=28_eval_acc=0.854.ckpt --rescore_model models/rescore_model --num_extractions 5 
+```
+
+When 'inside':
+
+```
+cd /home/myuser/openie6/
+cat "I love Luciano Pavarotti and Josep Maria Carreras Coll ." > sentences.txt
+CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=2 PYTHONPATH=imojie:imojie/allennlp:imojie/pytorch_transformers:$PYTHONPATH python run.py  --mode splitpredict --inp sentences.txt --out predictions.txt  --rescoring --task oie --gpus 1 --oie_model models/oie_model/epoch=14_eval_acc=0.551_v0.ckpt  --conj_model models/conj_model/epoch=28_eval_acc=0.854.ckpt --rescore_model models/rescore_model --num_extractions 5 
 
 ```
 
