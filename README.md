@@ -15,7 +15,7 @@ When 'inside':
 
 ```
 cd /home/myuser/openie6/
-cat "I love Luciano Pavarotti and Josep Maria Carreras Coll ." > sentences.txt
+echo "I love Luciano Pavarotti and Josep Maria Carreras Coll ." > sentences.txt
 CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=2 PYTHONPATH=imojie:imojie/allennlp:imojie/pytorch_transformers:$PYTHONPATH python run.py  --mode splitpredict --inp sentences.txt --out predictions.txt  --rescoring --task oie --gpus 1 --oie_model models/oie_model/epoch=14_eval_acc=0.551_v0.ckpt  --conj_model models/conj_model/epoch=28_eval_acc=0.854.ckpt --rescore_model models/rescore_model --num_extractions 5 
 
 ```
