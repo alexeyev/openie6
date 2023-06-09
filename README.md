@@ -4,7 +4,7 @@
 zenodo_get 4055395
 tar -xvf openie6_models.tar.gz
 docker build -t openie6 .
-nvidia-docker run --gpus all  -v /media:/media -v /home:/home -it -p 8084:8084 openie6:latest bash
+nvidia-docker run --gpus all -v /home:/home -it -p 8084:8084 openie6:latest bash
 CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=2 PYTHONPATH=imojie:imojie/allennlp:imojie/pytorch_transformers:$PYTHONPATH python run.py  --mode splitpredict --inp lsoie-5_single-sentences.txt --out lsoie_predictions.txt  --rescoring --task oie --gpus 1 --oie_model models/oie_model/epoch=14_eval_acc=0.551_v0.ckpt  --conj_model models/conj_model/epoch=28_eval_acc=0.854.ckpt --rescore_model models/rescore_model --num_extractions 5 
 
 ```
