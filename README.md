@@ -4,6 +4,7 @@ Suppose you are in `/home/myuser/`
 
 ```
 git clone git@github.com:alexeyev/openie6.git
+cd openie6
 zenodo_get 4055395
 tar -xvf openie6_models.tar.gz
 docker build -t openie6 .
