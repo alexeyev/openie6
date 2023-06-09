@@ -1,5 +1,7 @@
 ## What this fork is for: Docker
 
+**TESTED ON CUDA 10.2**
+
 Suppose you are in `/home/myuser/`
 
 ```
@@ -17,7 +19,14 @@ When 'inside':
 cd /home/myuser/openie6/
 echo "I love Luciano Pavarotti and Josep Maria Carreras Coll ." > sentences.txt
 CUDA_DEVICE_ORDER=PCI_BUS_ID CUDA_VISIBLE_DEVICES=0 PYTHONPATH=imojie:imojie/allennlp:imojie/pytorch_transformers:$PYTHONPATH python run.py  --mode splitpredict --inp sentences.txt --out predictions.txt  --rescoring --task oie --gpus 1 --oie_model models/oie_model/epoch=14_eval_acc=0.551_v0.ckpt  --conj_model models/conj_model/epoch=28_eval_acc=0.854.ckpt --rescore_model models/rescore_model --num_extractions 5 
+```
 
+Result:
+```
+$ cat predictions.txt                                                                
+I love Luciano Pavarotti and Josep Maria Carreras Coll .                                                                
+0.52: (I; love; Luciano Pavarotti)                                                                                      
+0.40: (I; love; Josep Maria Carreras Coll) 
 ```
 
 **DO NOT install allennlp or pytorch_transformers! this code uses a modified version of those.**
