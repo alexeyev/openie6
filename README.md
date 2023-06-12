@@ -31,6 +31,10 @@ I love Luciano Pavarotti and Josep Maria Carreras Coll .
 
 **DO NOT install allennlp or pytorch_transformers! this code uses a modified version of those.**
 
+## Coordination Analysis: IGL-CA demo
+
+We have also managed to put together a [Colab Notebook](https://colab.research.google.com/drive/1samvO-SH6Xgjf9ItlhAF1EmBZo5grBQb?usp=sharing) for running the conversion to 'simple' sentences. Works both in GPU and CPU environments. Have fun.
+
 ---
 
 # OpenIE6 System 
